@@ -83,7 +83,7 @@ export class FutbinPrices extends BaseScript {
 		const showFutbinPricePages = [
 			'UTTransferListSplitViewController', // transfer list
 			'UTWatchListSplitViewController', // transfer targets
-			'UTUnassignedItemsSplitViewController', // pack buy
+			'UTUnassignedItemsSplitViewController', // Unassigned / Buy Pack
 			'ClubSearchResultsSplitViewController', // club
 			'UTMarketSearchResultsSplitViewController', // market search
 			'UTPlayerPicksViewController',
@@ -342,7 +342,7 @@ export class FutbinPrices extends BaseScript {
 				<div class="ut-squad-slot-pedestal-view no-state futbin">
 					<span class="coins value" title="Last update: ${futbinData[playerId].prices[platform].updated || 'never'}">${futbinData[playerId].prices[platform].LCPrice || '---'}</span>
 				</div>
-				<div class="auctionValue futbin">
+				<div class="ut-squad-slot-pedestal-view no-state futbin">
 					<span class="label">MIN Start Price</span>
 					<span class="currency-coins value">${salePriceNearestPrice || '---'}</span>
 				</div>
@@ -367,7 +367,7 @@ export class FutbinPrices extends BaseScript {
 				break;
 			case 'UTTransferListSplitViewController'://Transfers
 			case 'UTWatchListSplitViewController':
-			case 'UTUnassignedItemsSplitViewController':
+			case 'UTUnassignedItemsSplitViewController':// Unassigned / Buy Pack
 			case 'ClubSearchResultsSplitViewController'://Squad
 			case 'UTMarketSearchResultsSplitViewController':
 
@@ -375,7 +375,6 @@ export class FutbinPrices extends BaseScript {
 
 				targetForButton = target.find('.auction');
 
-				targetForButton.removeAttr("style")
 				targetForButton.addClass("futbin")
 				targetForButton.show();
 
@@ -410,7 +409,18 @@ export class FutbinPrices extends BaseScript {
 				`);
 				break;
 			default:
-			// no need to do anything
+				target.addClass("futbin")
+				target.show();
+
+				target.prepend(`
+				<div class=auctionValue futbin">
+					<span class="coins value" title="Last update: ${futbinData[playerId].prices[platform].updated || 'never'}">${futbinData[playerId].prices[platform].LCPrice || '---'}</span>
+				</div>
+				<div class="auctionValue futbin">
+					<span class="label">MIN Start Price</span>
+					<span class="currency-coins value">${salePriceNearestPrice || '---'}</span>
+				</div>
+				`);
 		}
 
 		if (showBargain) {

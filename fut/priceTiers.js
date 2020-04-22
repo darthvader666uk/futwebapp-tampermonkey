@@ -1,55 +1,60 @@
 /* global utils UTCurrencyInputControl */
 export default {
-  roundValueToNearestPriceTiers(value) {
-    const tier = utils.JS.find(UTCurrencyInputControl.PRICE_TIERS, i => value > i.min);
+	roundValueToNearestPriceTiers(value) {
+		const tier = utils.JS.find(UTCurrencyInputControl.PRICE_TIERS, i => value > i.min);
 
-    const diff = value % tier.inc;
+		const diff = value % tier.inc;
 
-    if (diff === 0) {
-      return value;
-    } else if (diff < tier.inc / 2) {
-      return value - diff;
-    }
-    return value + (tier.inc - diff);
-  },
+		if (diff === 0) {
+			return value;
+		} else if (diff < tier.inc / 2) {
+			return value - diff;
+		}
+		return value + (tier.inc - diff);
+	},
 
-  roundDownToNearestPriceTiers(value) {
-    const tier = utils.JS.find(UTCurrencyInputControl.PRICE_TIERS, i => value > i.min);
+	roundDownToNearestPriceTiers(value) {
+		const tier = utils.JS.find(UTCurrencyInputControl.PRICE_TIERS, i => value > i.min);
 
-    const diff = value % tier.inc;
+		const diff = value % tier.inc;
 
-    if (diff === 0) {
-      return value - tier.inc;
-    }
-    return value - diff;
-  },
+		if (diff === 0) {
+			return value - tier.inc;
+		}
+		return value - diff;
+	},
 
-  roundUpToNearestPriceTiers(value) {
-    const tier = utils.JS.find(UTCurrencyInputControl.PRICE_TIERS, i => value > i.min);
+	roundUpToNearestPriceTiers(value) {
+		const tier = utils.JS.find(UTCurrencyInputControl.PRICE_TIERS, i => value > i.min);
+		var diff = 0;
 
-    const diff = value % tier.inc;
+		if (tier == null){
+			diff = 0;
+		} else {
+			diff = value % tier.inc;	
+		}
 
-    if (diff === 0) {
-      return value;
-    } else if (diff < tier.inc / 2) {
-      return value + diff;
-    }
-    return value + (tier.inc - diff);
-  },
+		if (diff === 0) {
+			return value;
+		} else if (diff < tier.inc / 2) {
+			return value + diff;
+		}
+		return value + (tier.inc - diff);
+	},
 
-  determineListPrice(start, buyNow) {
-    const tier = utils.JS.find(UTCurrencyInputControl.PRICE_TIERS, i => buyNow > i.min);
+	determineListPrice(start, buyNow) {
+		const tier = utils.JS.find(UTCurrencyInputControl.PRICE_TIERS, i => buyNow > i.min);
 
-    const startPrice = this.roundValueToNearestPriceTiers(start);
-    let buyNowPrice = this.roundValueToNearestPriceTiers(buyNow);
+		const startPrice = this.roundValueToNearestPriceTiers(start);
+		let buyNowPrice = this.roundValueToNearestPriceTiers(buyNow);
 
-    if (startPrice === buyNowPrice) {
-      buyNowPrice += tier.inc;
-    }
+		if (startPrice === buyNowPrice) {
+			buyNowPrice += tier.inc;
+		}
 
-    return {
-      start: startPrice,
-      buyNow: buyNowPrice,
-    };
-  },
+		return {
+			start: startPrice,
+			buyNow: buyNowPrice,
+		};
+	},
 };
