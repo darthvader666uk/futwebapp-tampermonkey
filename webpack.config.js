@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './app/index.js',
+  entry: './src/app/index.js',
   output: {
     filename: './dist/fut-enhancer.user.js',
   },
