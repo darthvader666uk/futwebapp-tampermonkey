@@ -38,7 +38,7 @@ window.currentPage = '';
 
 // prevent debugger trap
 setInterval(() => {
-  _0x1a026c = function () {}; // eslint-disable-line no-global-assign, no-undef
+  var _0x1a026c = function () {};
 }, 500);
 
 UTNavigationController.prototype.didPush = (t) => {

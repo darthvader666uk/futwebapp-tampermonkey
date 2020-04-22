@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name        FUT Enhancer
-// @version     1.6.5
+// @name        FUT Web Enhancer
+// @version     1.6.6
 // @description Enhances the FIFA Ultimate Team 20 Web app. Includes Futbin integration and other useful tools
 // @license     MIT
 // @author      Tim Klingeleers, darthvader666uk
