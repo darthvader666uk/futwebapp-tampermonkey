@@ -2,7 +2,7 @@
 // @name         Futbin Copy Name Text
 // @version      0.1
 // @description  This will copy the name text on a player so its easy to seach for them
-// @author       darthvader666uk
+// @author       snightingale
 // @match        *://www.futbin.com/*
 // @require      http://code.jquery.com/jquery-3.4.1.min.js
 // @require      https://gist.github.com/raw/2625891/waitForKeyElements.js
@@ -14,7 +14,9 @@
 
 var $ = window.jQuery;
 
-waitForKeyElements (".pcdisplay-name", getNodeText);
+//waitForKeyElements (".pcdisplay-name", getNodeText);
+
+waitForKeyElements (".header_name", getNodeText);
 
 function getNodeText (jNode) {
     var targText = jNode.text ().trim ();
