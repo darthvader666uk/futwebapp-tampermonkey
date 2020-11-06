@@ -57,4 +57,4 @@ npm run build
 
 The output will be in the `dist` folder called `fut-enhancer.user.js`
 
-<a href="https://www.buymeacoffee.com/disruptthinking" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+<a href="https://www.buymeacoffee.com/darthvader666uk" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
